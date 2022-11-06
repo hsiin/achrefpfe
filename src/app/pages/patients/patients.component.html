@@ -1,0 +1,66 @@
+<nz-page-header
+  style="
+    position: fixed;
+    padding-bottom: 20px;
+    background-color: white;
+    width: 100%;
+    z-index: 9999;
+  "
+  class="site-page-header"
+  (nzBack)="onBack()"
+  nzTitle="Patients list"
+>
+</nz-page-header>
+<button
+  (click)="add()"
+  style="
+    position: fixed;
+    z-index: 9999999;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 20px;
+  "
+  nz-button
+  nzType="primary"
+  nzShape="circle"
+>
+  <!-- <span nz-icon nzType="search"></span> -->
+  <span nz-icon nzType="plus" nzTheme="outline"></span>
+</button>
+
+<div
+  style="
+    display: flex;
+    padding-top: 90px;
+    z-index: 999;
+    padding-bottom: 5px;
+    background: white;
+    width: 100%;
+    position: fixed;
+  "
+>
+  <nz-input-group nzSearch>
+    <input type="text" nz-input placeholder="input search text" />
+  </nz-input-group>
+  <button nz-button nzType="primary" nzShape="circle">
+    <span nz-icon nzType="search"></span>
+  </button>
+</div>
+
+<ul
+  nz-list
+  [nzDataSource]="data"
+  nzBordered
+  nzSize="large"
+  style="padding-top: 135px"
+>
+  <li nz-list-item *ngFor="let item of data" nzNoFlex>
+    <ul nz-list-item-actions>
+      <nz-list-item-action>
+        <a (click)="detail(item)">Detail</a>
+        <a (click)="delete(item)" style="color: red; padding-left: 8px">Delete</a>
+      </nz-list-item-action>
+    </ul>
+    {{ item.firstName }} {{ item.lastName }}
+  </li>
+</ul>

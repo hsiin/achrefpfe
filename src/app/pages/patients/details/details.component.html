@@ -1,0 +1,20 @@
+<nz-page-header
+  class="site-page-header"
+  (nzBack)="onBack()"
+  nzBackIcon
+  nzTitle="Detail Patient"
+></nz-page-header>
+
+<nz-descriptions nzBordered>
+  <nz-descriptions-item nzTitle="First name">{{patient.firstName}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Last name">{{patient.lastName}}</nz-descriptions-item>
+  <nz-descriptions-item nzTitle="Chamber number">{{patient.roomNum}}</nz-descriptions-item>
+
+  <nz-descriptions-item nzTitle="Temperture" [nzSpan]="3">
+    <nz-badge nzStatus="success" [nzText]="patient.measure.temperature"></nz-badge>
+  </nz-descriptions-item>
+  <nz-descriptions-item nzTitle="BPM" [nzSpan]="3">
+    <nz-badge nzStatus="warning" [nzText]="patient.measure.bpm"></nz-badge>
+  </nz-descriptions-item>
+
+</nz-descriptions>

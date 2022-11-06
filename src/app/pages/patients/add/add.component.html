@@ -1,0 +1,52 @@
+<nz-page-header
+  style="position: fixed; padding-bottom: 20px; width: 100%; z-index: 9999"
+  class="site-page-header"
+  (nzBack)="onBack()"
+  nzBackIcon
+  nzTitle="Add Patient"
+>
+</nz-page-header>
+<form
+  nz-form
+  [formGroup]="validateForm"
+  (ngSubmit)="submitForm()"
+  style="padding: 75px 10px"
+>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="First_name"
+      >First name</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid First name!"
+    >
+      <input nz-input formControlName="firstName" id="First_name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="last_name"
+      >Last name</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="The input is not valid last name!"
+    >
+      <input nz-input formControlName="lastName" id="last_name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="chamber" nzRequired
+      >Chamber number</nz-form-label
+    >
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input chamber!">
+      <input nz-input id="chamber" formControlName="roomNum" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item nz-row class="register-area">
+    <button nz-button nzType="primary" [disabled]="!validateForm.valid">
+      Add
+    </button>
+  </nz-form-item>
+</form>
